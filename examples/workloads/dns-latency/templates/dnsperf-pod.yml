@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dnsperf-{{ .Iteration }}
+  labels:
+    app: dnsperf
+    kube-burner-job: dns-latency
+spec:
+  restartPolicy: Never
+  containers:
+  - name: dnsperf
+    image: registry.k8s.io/e2e-test-images/dnsperf:1.0
+    command:
+      - /bin/sh
+      - -c
+      - |
+        dnsperf -s {{ .dnsServer }} -l {{ .duration }} -q 100

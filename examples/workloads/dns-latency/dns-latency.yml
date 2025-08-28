@@ -1,0 +1,24 @@
+---
+global:
+  gc: true
+  gcMetrics: false
+  measurements:
+    - name: dnsLatency
+metricsEndpoints:
+  - indexer:
+      metricsDirectory: kube-burner
+      type: local
+
+jobs:
+  - name: dns-latency
+    namespace: dns-latency
+    jobIterations: 1
+    podWait: true
+    waitWhenFinished: true
+    cleanup: true
+    objects:
+      - objectTemplate: templates/dnsperf-pod.yml
+        replicas: 1
+        inputVars:
+          dnsServer: kube-dns.kube-system.svc.cluster.local
+          duration: 10

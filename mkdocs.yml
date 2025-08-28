@@ -5,12 +5,14 @@ nav:
 - Command line: cli/index.md
 - Reference: reference/configuration.md
 - Measurements: measurements/index.md
-- Observability & Alerting: 
+- Observability & Alerting:
   - observability/index.md
   - Overview: observability/index.md
   - Collecting metrics: observability/metrics.md
   - Indexing: observability/indexing.md
   - Alerting: observability/alerting.md
+- How-to:
+  - how-to-dns-latency.md
 - Contributing:
   - contributing/index.md
   - GitHub Workflows:
